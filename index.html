@@ -4,27 +4,42 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="style.css">
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
 
 </head>
 <body>
 
 <div ng-app="lista">
     <form ng-controller="listCtrl">
-        <button ng-click="" ng-show=""> Click pentru adaugare </button>
-      Nume:      <input type="text" ng-model="data.message" >{{data.message}}
-      Descriere: <input type="text" ng-model="data.message">{{data.message}}
-      Editare:   <button ng-click=""> Click pentru editare </button>
-                 <button ng-click="">Add: </button>
+        <button ng-click="toggleBox()"> Buton + </button><br />
+        <div ng-show="checked">
 
-        <input type="checkbox" ng-model="" />
+      Nume:      <input type="text" ng-model="newItem.nume" />{{newItem.nume}} <br />
+      Descriere: <input type="text" ng-model="newItem.descriere" />{{newItem.descriere}} <br />
+      Cantitate: <input type="number" ng-model="newItem.cantitate" required />{{newItem.cantitate}}<br />
+      Pret:      <input type="number" ng-model="newItem.pret" required />{{newItem.pret}}<br />
+      Subtotal:  <span>{{subtotal()}}</span>
+       Add:      <button ng-click="add()">Add: </button> <br />
+       </div>
+<!--
+        <br />
+
+        <b>Lista de cumparaturi este:</b>   <br />
+        <input type="checkbox" ng-model="check" />
+        Editare:   <button ng-click="list.editare"> Click pentru editare </button> <br />
+
+        <br />
 
         <button ng-click="reset()"> Reset </button>
-        <input type="text" ng-model="" />
-        <button ng-click="">hi</button>
 
+        <br />
+
+        <b>Cauta dupa nume:</b>
+        <input type="text" ng-model="search" />
+        -->
     </form>
+
 </div>
 <script  type="text/javascript" src="angularjs/angular.js"></script>
+<script type="text/javascript" src="lista.js"></script>
 </body>
 </html>
