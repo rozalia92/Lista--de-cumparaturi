@@ -3,7 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mystyle.css">
+
 
 </head>
 <body>
@@ -15,8 +16,8 @@
 
       Nume:      <input type="text" ng-model="newItem.nume" />{{newItem.nume}} <br />
       Descriere: <input type="text" ng-model="newItem.descriere" />{{newItem.descriere}} <br />
-      Cantitate: <input type="number" ng-model="newItem.cantitate" required />{{newItem.cantitate}}<br />
-      Pret:      <input type="number" ng-model="newItem.pret" required />{{newItem.pret}}<br />
+      Cantitate: <input type="number" ng-model="newItem.cantitate" required /><br />
+      Pret:      <input type="number" ng-model="newItem.pret" required /> <br />
       Subtotal:  <span>{{newItem.subtotal(newItem.pret,newItem.cantitate)}}</span> <br />
                  <button ng-click="add()">Add </button> <br />
        </div>
@@ -25,13 +26,33 @@
 
         <b>Lista de cumparaturi este:</b>   <br />
 
-            <span ng-repeat="item in shoppingList">
-                <span>{{"Nume: "+ item.nume}}</span>
-                <span>{{"Descriere: " + item.descriere}}</span>
-                <span>{{"Cantitate:" + item.cantitate}}</span>
-                <span>{{"Pret: " + item.pret}}</span>
-                <span>{{"Subtotal: " + item.subtotal(item.pret, item.cantitate)}}</span>
+            <span ng-repeat="item in shoppingList"  ng-class="{'strike': item.cumparat}" >
+                     <input type="checkbox" ng-model="item.cumparat" />
+                        <span ng-disabled="checked">
+                             <span >{{"Nume: "+ item.nume}}</span>
+                             <span >{{"Descriere: " + item.descriere}}</span>
+                             <span>{{"Cantitate:" + item.cantitate}}</span>
+                             <span>{{"Pret: " + item.pret}}</span>
+                             <span>{{"Subtotal: " + item.subtotal(item.pret, item.cantitate)}}</span>
+                             <button ng-click="edit()">Edit </button>
+                        </span>
+                        <br />
+
+                <span ng-show="editField">
+                  Nume:       <input type="text" ng-model="item.nume" />
+                  Descriere:  <input type="text" ng-model="item.descriere" />
+                  Cantitate:  <input type="number" ng-model="item.cantitate" required />
+                  Pret:       <input type="number" ng-model="item.pret" required />
+                  Subtotal:   <span>{{item.subtotal(item.pret,item.cantitate)}}</span> <br />
+                 </span>
+                     <br />
+
             </span>
+<!-- parteA a doua -->
+
+
+
+
             <!-- <span ng-repeat="item in shoppingList">{{"Subtotal: " + item.miniSubtotal}} </span> -->
 
 
@@ -52,5 +73,5 @@
 </div>
 <script  type="text/javascript" src="angularjs/angular.js"></script>
 <script type="text/javascript" src="lista.js"></script>
-</body>
+ </body>
 </html>
