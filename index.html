@@ -17,17 +17,28 @@
       Descriere: <input type="text" ng-model="newItem.descriere" />{{newItem.descriere}} <br />
       Cantitate: <input type="number" ng-model="newItem.cantitate" required />{{newItem.cantitate}}<br />
       Pret:      <input type="number" ng-model="newItem.pret" required />{{newItem.pret}}<br />
-      Subtotal:  <span>{{subtotal()}}</span>
-       Add:      <button ng-click="add()">Add: </button> <br />
+      Subtotal:  <span>{{newItem.subtotal(newItem.pret,newItem.cantitate)}}</span> <br />
+                 <button ng-click="add()">Add </button> <br />
        </div>
-<!--
+
         <br />
 
         <b>Lista de cumparaturi este:</b>   <br />
-        <input type="checkbox" ng-model="check" />
-        Editare:   <button ng-click="list.editare"> Click pentru editare </button> <br />
 
-        <br />
+            <span ng-repeat="item in shoppingList">
+                <span>{{"Nume: "+ item.nume}}</span>
+                <span>{{"Descriere: " + item.descriere}}</span>
+                <span>{{"Cantitate:" + item.cantitate}}</span>
+                <span>{{"Pret: " + item.pret}}</span>
+                <span>{{"Subtotal: " + item.subtotal(item.pret, item.cantitate)}}</span>
+            </span>
+            <!-- <span ng-repeat="item in shoppingList">{{"Subtotal: " + item.miniSubtotal}} </span> -->
+
+
+
+     <!--   Editare:   <button ng-click="list.editare"> Click pentru editare </button> <br /> -->
+
+       <!-- <br />
 
         <button ng-click="reset()"> Reset </button>
 
@@ -35,7 +46,7 @@
 
         <b>Cauta dupa nume:</b>
         <input type="text" ng-model="search" />
-        -->
+-->
     </form>
 
 </div>

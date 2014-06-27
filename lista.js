@@ -5,20 +5,39 @@
 angular.module('lista',[])
     .controller('listCtrl',function($scope){
 
+        $scope.shoppingList = [];
+
         $scope.checked = false;
         $scope.newItem = {
             pret: 0,
             cantitate: 0,
             nume: '',
-            descriere: ''
+            descriere: '',
+            subtotal : function(pret, cantitate){
+                return pret * cantitate;
+
+            }
         };
 
         $scope.toggleBox = function () {
             $scope.checked = !$scope.checked;
         }
 
-        $scope.subtotal = function(){
-            return $scope.newItem.cantitate * $scope.newItem.pret;
+
+//        $scope.check = [{}];
+        $scope.add =  function(){
+
+            $scope.shoppingList.push($scope.newItem);
+            $scope.newItem = {
+                pret: 0,
+                cantitate: 0,
+                nume: '',
+                descriere: ''
+            };
+
+            $scope.checked = !$scope.checked;
+
+
         };
 
 
