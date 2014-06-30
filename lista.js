@@ -53,7 +53,7 @@ angular.module('lista',[])
 // partea a doua
 
         $scope.edit = function(){
-            $scope.editField = !$scope.editField;
+            this.editField = !this.editField;
              }
 
         $scope.remove = function (item) {
@@ -81,6 +81,15 @@ angular.module('lista',[])
                 tot = tot + item.subtotal(item.pret,item.cantitate);
             })
             return tot;
+        }
+
+        $scope.myfocus1 = function(){
+            $scope.newItem.cantitate = "";
+
+        }
+
+        $scope.myfocus2 = function(){
+            $scope.newItem.pret = "";
         }
 
 
