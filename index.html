@@ -9,13 +9,13 @@
 </head>
 <body>
 
-<div ng-app="lista">
+<div ng-app="lista" >
     <form ng-controller="listCtrl">
         <button ng-click="toggleBox()"> Buton + </button><br />
-        <div ng-show="checked">
 
-      Nume:      <input type="text" ng-model="newItem.nume" />{{newItem.nume}} <br />
-      Descriere: <input type="text" ng-model="newItem.descriere" />{{newItem.descriere}} <br />
+        <div id = "style1" ng-show="checked">
+      Nume:      <input type="text" ng-model="newItem.nume" /> <br />
+      Descriere: <input type="text" ng-model="newItem.descriere" /> <br />
       Cantitate: <input type="number" ng-model="newItem.cantitate" required /><br />
       Pret:      <input type="number" ng-model="newItem.pret" required /> <br />
       Subtotal:  <span>{{newItem.subtotal(newItem.pret,newItem.cantitate)}}</span> <br />
@@ -26,18 +26,24 @@
 
         <b>Lista de cumparaturi este:</b>   <br />
 
-            <span ng-repeat="item in shoppingList"  ng-class="{'strike': item.cumparat}" >
-                     <input type="checkbox" ng-model="item.cumparat" />
-                        <span ng-disabled="checked">
-                             <span >{{"Nume: "+ item.nume}}</span>
-                             <span >{{"Descriere: " + item.descriere}}</span>
-                             <span>{{"Cantitate:" + item.cantitate}}</span>
-                             <span>{{"Pret: " + item.pret}}</span>
-                             <span>{{"Subtotal: " + item.subtotal(item.pret, item.cantitate)}}</span>
-                             <button ng-click="edit()">Edit </button>
-                             <button ng-click="removeClass()">Remove</button>
-                        </span>
-                        <br />
+            <b> Cauta: </b>
+            <input type="text" ng-model="search" /> <br />
+            <button ng-click="deleteCumparat()"> Sterge elemente cumparate</button> <br />
+            <span>{{"Total: "+total()}}</span><br />
+            <span ng-repeat="item in shoppingList | filter:search"  ng-class="{'strike': item.cumparat}" >
+                    <input type="checkbox" ng-model="item.cumparat" />
+                    <span id = "deSters" ng-disabled="checked">
+                         <span >{{"Nume: "+ item.nume}}</span>
+                         <span >{{"Descriere: " + item.descriere}}</span>
+                         <span>{{"Cantitate:" + item.cantitate}}</span>
+                         <span>{{"Pret: " + item.pret}}</span>
+                         <span>{{"Subtotal: " + item.subtotal(item.pret, item.cantitate)}}</span>
+                         <button ng-click="edit()">Edit </button>
+                         <button ng-click="remove(item)">Remove</button>
+
+                    </span>
+
+                    <br />
 
                 <span ng-show="editField">
                   Nume:       <input type="text" ng-model="item.nume" />
@@ -47,27 +53,9 @@
                   Subtotal:   <span>{{item.subtotal(item.pret,item.cantitate)}}</span> <br />
                  </span>
                      <br />
-            </span>
-<!-- parteA a doua -->
 
+                 </span>
 
-
-
-            <!-- <span ng-repeat="item in shoppingList">{{"Subtotal: " + item.miniSubtotal}} </span> -->
-
-
-
-     <!--   Editare:   <button ng-click="list.editare"> Click pentru editare </button> <br /> -->
-
-       <!-- <br />
-
-        <button ng-click="reset()"> Reset </button>
-
-        <br />
-
-        <b>Cauta dupa nume:</b>
-        <input type="text" ng-model="search" />
--->
     </form>
 
 </div>
