@@ -16,8 +16,8 @@
         <div id = "style1" ng-show="checked">
       Nume:      <input type="text" ng-model="newItem.nume" /> <br />
       Descriere: <input type="text" ng-model="newItem.descriere" /> <br />
-      Cantitate: <input type="number" ng-focus="myfocus1()" ng-model="newItem.cantitate" required /><br />
-      Pret:      <input type="number" ng-focus="myfocus2()" ng-model="newItem.pret" required /> <br />
+      Cantitate: <input type="number" ng-focus="myfocus1()" ng-blur="myblur1()" ng-model="newItem.cantitate" required /><br />
+      Pret:      <input type="number" ng-focus="myfocus2()" ng-blur="myblur2()" ng-model="newItem.pret" required /> <br />
       Subtotal:  <span>{{newItem.subtotal(newItem.pret,newItem.cantitate)}}</span> <br />
                  <button ng-click="add()">Add </button> <br />
        </div>
