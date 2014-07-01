@@ -21,3 +21,15 @@
 input:focus{
     background-color: lightyellow;
 }
+
+label{
+    display: inline-block;
+    float: left;
+
+
+}
+
+.indentare{
+    display: inline-block;
+    float:right;
+}

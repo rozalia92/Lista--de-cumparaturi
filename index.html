@@ -14,11 +14,11 @@
         <button ng-click="toggleBox()"> Buton + </button><br />
 
         <div id = "style1" ng-show="checked">
-      Nume:      <input type="text" ng-model="newItem.nume" /> <br />
-      Descriere: <input type="text" ng-model="newItem.descriere" /> <br />
-      Cantitate: <input type="number" ng-focus="myfocus()" ng-blur="myblur()" ng-model="newItem.cantitate" required /><br />
-      Pret:      <input type="number" ng-focus="myfocus1()"  ng-blur="myblur1()" ng-model="newItem.pret" required /> <br />
-      Subtotal:  <span>{{newItem.subtotal(newItem.pret,newItem.cantitate)}}</span> <br />
+            <label>Nume:</label> <input type="text" class="indentare"  ng-model="newItem.nume" /> <br />
+            <label>Descriere:</label> <input type="text" class="indentare" ng-model="newItem.descriere" /> <br />
+            <label>Cantitate</label> <input type="number" class="indentare" ng-focus="myfocus()" ng-blur="myblur()" ng-model="newItem.cantitate" required /><br />
+            <label>Pret:</label> <input type="number" class="indentare" ng-focus="myfocus1()"  ng-blur="myblur1()" ng-model="newItem.pret" required /> <br />
+            Subtotal: <span>{{newItem.subtotal(newItem.pret,newItem.cantitate)}}</span> <br />
                  <button ng-click="add()">Add </button> <br />
        </div>
 
