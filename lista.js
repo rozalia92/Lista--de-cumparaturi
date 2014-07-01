@@ -101,6 +101,7 @@ angular.module('lista',[])
                 tot = tot + item.subtotal(item.pret,item.cantitate);
             })
             return tot;
+
         }
 
 

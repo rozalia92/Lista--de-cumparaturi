@@ -23,8 +23,6 @@
 
         <br />
 
-        <b>Lista de cumparaturi este:</b>   <br />
-
          <b> Cauta: </b>
          <input type="text" ng-model="search" /> <br />
 
@@ -32,6 +30,7 @@
 
          <span>{{"Total: "+total()}}</span><br /> <br />
 
+        <b>Lista de cumparaturi este:</b>   <br />
          <span ng-repeat="item in shoppingList | filter:search | dusJos"  ng-class="{'strike': item.cumparat}" >
                 <br />
                 <input type="checkbox" ng-model="item.cumparat" />
