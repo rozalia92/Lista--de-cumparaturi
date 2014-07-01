@@ -9,6 +9,7 @@ angular.module('lista',[])
         $scope.checked = false;
         $scope.editField =false;
         $scope.currentElem = false;
+        $scope.maiMic = false;
         $scope.newItem = {
             pret: 0,
             cantitate: 0,
@@ -17,8 +18,13 @@ angular.module('lista',[])
             cumparat: false,
             subtotal : function(pret, cantitate){
                 return pret * cantitate;
-
+            },
+  /*          maiMicCa0 : function(){
+                if( cantitate < 0 || pret < 0 ){
+                    $scope.maiMic = !$scope.maiMic;
             }
+            */
+
         };
 
 
@@ -53,8 +59,19 @@ angular.module('lista',[])
 // partea a doua
 
         $scope.edit = function(){
-            this.editField = !this.editField;
+            $scope.editField = !$scope.editField;
+            $scope.item.nume = $scope.newItem.nume;
+            $scope.item.descriere = $scope.newItem.descriere;
+            $scope.item.cantitate = $scope.newItem.cantitate;
+            $scope.item.pret = $scope.newItem.pret;
              }
+
+        $scope.save = function(){
+            $scope.editField = false;
+        }
+
+
+
 
         $scope.remove = function (item) {
             for (var i = 0; i < $scope.shoppingList.length; i++){
@@ -86,25 +103,41 @@ angular.module('lista',[])
         }
 
 
+        $scope.myfocus = function(){
+           if( $scope.newItem.cantitate == 0 )
+                $scope.newItem.cantitate = '';
+
+        }
+
+
         $scope.myfocus1 = function(){
-            $scope.newItem.cantitate = "";
+           if( $scope.newItem.pret == 0 )
+                 $scope.newItem.pret = '';
+        }
+
+
+        $scope.myblur = function(){
+
+            if( $scope.newItem.cantitate == "" )
+                $scope.newItem.cantitate = 0;
 
         }
 
 
-        $scope.myfocus2 = function(){
-            $scope.newItem.pret = "";
+        $scope.myblur1 =  function(){
+            if( $scope.newItem.pret == "" )
+                 $scope.newItem.pret = 0;
         }
 
 
-        $scope.myblur1 = function(){
-            $scope.newItem.cantitate = "0";
+     /*   $scope.MaiMicCa0 = function(){
+            if( $scope.newItem.cantitate < 0 || $scope.newItem.pret < 0 ){
+                message.alert("ai adaugat nr mai mic ca 0!");
+                $scope.MaiMic = !$scope.MaiMic;
+            }
         }
+*/
 
-
-        $scope.myblur2 =  function(){
-            $scope.newItem.pret = "0";
-        }
 
 
 
