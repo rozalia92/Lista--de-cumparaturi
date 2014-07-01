@@ -65,6 +65,7 @@ angular.module('lista',[])
             }
         }
 
+
         $scope.deleteCumparat = function(){
             var old = $scope.shoppingList;
             $scope.shoppingList = [];
@@ -73,6 +74,7 @@ angular.module('lista',[])
                     $scope.shoppingList.push(item);
             })
         }
+
 
         $scope.total = function () {
             var tot = 0;
@@ -83,13 +85,25 @@ angular.module('lista',[])
             return tot;
         }
 
+
         $scope.myfocus1 = function(){
             $scope.newItem.cantitate = "";
 
         }
 
+
         $scope.myfocus2 = function(){
             $scope.newItem.pret = "";
+        }
+
+
+        $scope.myblur1 = function(){
+            $scope.newItem.cantitate = "0";
+        }
+
+
+        $scope.myblur2 =  function(){
+            $scope.newItem.pret = "0";
         }
 
 
