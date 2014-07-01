@@ -1,0 +1,22 @@
+.strike {
+    text-decoration: line-through;
+}
+
+
+#style1{
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+    border-style: solid;
+}
+
+#deSters{
+    width: 700px;
+    height:70px;
+    padding: 5px;
+    border-style: solid ;
+}
+
+input:focus{
+    background-color: lightyellow;
+}
