@@ -10,22 +10,13 @@
     border-style: solid;
 }
 
-#deSters{
-
-    width: 700px;
-    height:70px;
-    padding: 5px;
-    border-style: solid ;
-}
 
 input:focus{
     background-color: lightyellow;
 }
 
 label{
-    display: inline-block;
-    float: left;
-
+   text-indent: 5em;
 
 }
 

@@ -3,6 +3,7 @@
  */
 
 angular.module('lista',[])
+
     .controller('listCtrl',function($scope){
 
         $scope.shoppingList = [];
@@ -18,15 +19,15 @@ angular.module('lista',[])
             cumparat: false,
             subtotal : function(pret, cantitate){
                 return pret * cantitate;
-            },
+            }
   /*          maiMicCa0 : function(){
                 if( cantitate < 0 || pret < 0 ){
                     $scope.maiMic = !$scope.maiMic;
             }
             */
 
-        };
 
+        };
 
 
         $scope.toggleBox = function () {
@@ -138,7 +139,20 @@ angular.module('lista',[])
         }
 */
 
+    })
 
+    .filter('dusJos',function(){
+        return function (shoppingList) {
+            var elemCumparate = [];
+            var elemNecumparate = [];
 
-
+            for( var k = 0; k < shoppingList.length; k++ ){
+                if(!shoppingList[k].cumparat)
+                    elemNecumparate.push(shoppingList[k]);
+                else
+                    elemCumparate.push(shoppingList[k]);
+            }
+            console.log(elemNecumparate.concat(elemCumparate));
+            return elemNecumparate.concat(elemCumparate);
+        };
     });

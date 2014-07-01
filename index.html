@@ -12,51 +12,49 @@
 <div ng-app="lista" >
     <form ng-controller="listCtrl">
         <button ng-click="toggleBox()"> Buton + </button><br />
-
         <div id = "style1" ng-show="checked">
             <label>Nume:</label> <input type="text" class="indentare"  ng-model="newItem.nume" /> <br />
             <label>Descriere:</label> <input type="text" class="indentare" ng-model="newItem.descriere" /> <br />
-            <label>Cantitate</label> <input type="number" class="indentare" ng-focus="myfocus()" ng-blur="myblur()" ng-model="newItem.cantitate" required /><br />
-            <label>Pret:</label> <input type="number" class="indentare" ng-focus="myfocus1()"  ng-blur="myblur1()" ng-model="newItem.pret" required /> <br />
+            <label>Cantitate</label> <input type="number" class="indentare" ng-focus="myfocus()" ng-blur="myblur()" ng-model="newItem.cantitate" /><br />
+            <label>Pret:</label> <input type="number" class="indentare" ng-focus="myfocus1()"  ng-blur="myblur1()" ng-model="newItem.pret" /> <br />
             Subtotal: <span>{{newItem.subtotal(newItem.pret,newItem.cantitate)}}</span> <br />
-                 <button ng-click="add()">Add </button> <br />
+            <button ng-click="add()">Add </button> <br />
        </div>
 
         <br />
 
         <b>Lista de cumparaturi este:</b>   <br />
 
-            <b> Cauta: </b>
-            <input type="text" ng-model="search" /> <br />
-            <button ng-click="deleteCumparat()"> Sterge elemente cumparate</button> <br />
-            <span>{{"Total: "+total()}}</span><br /> <br />
-            <span ng-repeat="item in shoppingList | filter:search"  ng-class="{'strike': item.cumparat}" >
+         <b> Cauta: </b>
+         <input type="text" ng-model="search" /> <br />
+
+         <button ng-click="deleteCumparat()"> Sterge elemente cumparate</button> <br />
+
+         <span>{{"Total: "+total()}}</span><br /> <br />
+
+         <span ng-repeat="item in shoppingList | filter:search | dusJos"  ng-class="{'strike': item.cumparat}" >
                 <br />
-                    <input type="checkbox" ng-model="item.cumparat" />
-                    <span id = "deSters" ng-disabled="checked" ng-hide="editField">
-                         <span >{{"Nume: "+ item.nume}}</span>
-                         <span >{{"Descriere: " + item.descriere}}</span>
+                <input type="checkbox" ng-model="item.cumparat" />
+                <span id = "deSters" ng-disabled="checked" ng-hide="editField">
+                         <span>{{"Nume: "+ item.nume}}</span>
+                         <span>{{"Descriere: " + item.descriere}}</span>
                          <span>{{"Cantitate:" + item.cantitate}}</span>
                          <span>{{"Pret: " + item.pret}}</span>
                          <span>{{"Subtotal: " + item.subtotal(item.pret, item.cantitate)}}</span>
                          <button ng-click="edit()">Edit </button>
                          <button ng-click="remove(item)">Remove</button>
-
-
-                    </span>
+                </span>
 
                 <span ng-show="editField">
-                  Nume:       <input type="text" ng-model="item.nume" />
-                  Descriere:  <input type="text" ng-model="item.descriere" />
-                  Cantitate:  <input type="number" ng-model="item.cantitate" required />
-                  Pret:       <input type="number" ng-model="item.pret" required />
-                  Subtotal:   <span>{{item.subtotal(item.pret, item.cantitate)}}</span> <br />
-                  <button  ng-click="save()"> Save </button>
+                         Nume: <input type="text" ng-model="item.nume" />
+                         Descriere: <input type="text" ng-model="item.descriere" />
+                         Cantitate: <input type="number" ng-model="item.cantitate" required />
+                         Pret: <input type="number" ng-model="item.pret" required />
+                         Subtotal: <span>{{item.subtotal(item.pret, item.cantitate)}}</span> <br />
+                         <button  ng-click="save()"> Save </button>
+                </span>
 
-                 </span>
-                     <br />
-
-                 </span>
+         </span>
 
     </form>
 
